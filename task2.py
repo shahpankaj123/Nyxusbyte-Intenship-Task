@@ -9,6 +9,7 @@ while(i>0):
     num=int(input())
     if num==random_number:
         print("congrats you won ")
+        break
     if num>random_number:
         print("your guessed number is greater than actual number ")  
     if num <random_number:
