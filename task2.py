@@ -1,10 +1,13 @@
 import random
 
 print("Guessing game")
-random_number=random.randint(1,100)
-print(random_number)
-i=3
-while(i>0):
+
+
+def guess():
+ random_number=random.randint(1,100)
+ print(random_number) 
+ i=3
+ while(i>0):
     print("Plaese guess any number between 1 to 100")
     num=int(input())
     if num==random_number:
@@ -17,3 +20,15 @@ while(i>0):
        
     i-=1
     print("you have left trial",i) 
+guess()
+w=0
+while w==0:
+ choice=input("do you want to continue (Y/N)") 
+ if choice == 'Y' or choice == 'y':
+   guess()
+ else:
+    w=1
+    print("thank you")
+
+  
+
