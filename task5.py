@@ -21,5 +21,7 @@ elif choice==3:
     res=num1*num2
 elif choice ==4:
     res =num1/num2
+else:
+    print("please choose valid choices")
 
 print("your result:",res)
