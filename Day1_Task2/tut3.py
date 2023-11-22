@@ -1,6 +1,6 @@
 t=0
 start_state=False
-stop_state=False
+stop_state=True
 while t==0:
   
 
@@ -29,7 +29,11 @@ while t==0:
   print("start->start the car")
   print("stop->stop the car")
   print("exit->exit the game")
+
+
+
   choice=input("enter your choice:")
+
 
   if choice == 'start':
      stop_state=start(start_state)
