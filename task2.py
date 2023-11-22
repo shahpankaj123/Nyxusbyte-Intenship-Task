@@ -28,7 +28,7 @@ while w==0:
    guess()
  else:
     w=1
-    print("thank you")
+    print("thank you for playing")
 
   
 
