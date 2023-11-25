@@ -2,7 +2,7 @@ print("--managing to-do list--")
 t=0
 to_todo_list=[]
 a=0
-
+x=0
 while t==0:
   def add_task(list1):
     task_desc=input("enter the detail of task")
@@ -90,13 +90,15 @@ while t==0:
     elif choice == 'help':
       help()
     elif choice == 'exit':
-      t=exit()  
+      x=exit()  
     else:
-      print("choose valid option")    
+     print("choose valid option")  
+   
   if a ==0:
    menu() 
    a=1  
   else:
     help()  
+
 
 
