@@ -105,7 +105,7 @@ while g==0:
    print("update -> update student")
    print("del -> delete student")
    print("sort -> diplay stu detail with mark high")
-   print(" exit -> exit")
+   print("exit -> exit")
 
    choice=input("enter your choice :")
   
@@ -118,7 +118,6 @@ while g==0:
            data=Student(name,marks)
            data.add_student()
            print(id(data))
-           #Student.student_data.append({'name':name,'roll':roll,'marks':marks})
            print(Student.student_data)
        except Exception as e:
            print(e)
@@ -134,7 +133,9 @@ while g==0:
    elif  choice == 'sort':
           data.display_student() 
    elif  choice == 'exit':
-       g=exit()                     
+       g=exit() 
+   else:
+       print("please choose valid choice")                        
 
               
               
