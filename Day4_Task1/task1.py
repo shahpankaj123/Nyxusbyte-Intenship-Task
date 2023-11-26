@@ -45,6 +45,7 @@ while t==0:
         g=True
     if g == False:
       print("completed task not found ")
+
   def incomplete_task(list1):
     g=False
     for task in list1:
@@ -63,10 +64,12 @@ while t==0:
         choices=input("Do you want to delete Permantely (Y/N)")
         if choices.lower() == 'y':
           list1.remove(task)
+          g=True
         else:
           list1.remove(task)
           bin.append(task) 
-        g=True
+          g=True
+        
         print(list1,bin)  
     if g == False:
         print("Enter task not found")  
