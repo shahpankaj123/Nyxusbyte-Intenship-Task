@@ -77,12 +77,12 @@ class Student:
     def display_student(self):
         data=self.getdata()
 
-        for x in range(0,len(data)-1):
-
-            if data[x]['marks']<data[x+1]['marks']:
+        for x in range(0,len(data)-1): #insertion sort
+            for y in range(x,len(data)-1):
+              if data[x]['marks']<data[y+1]['marks']:
                 temp=data[x]
-                data[x]=data[x+1]
-                data[x+1]=temp
+                data[x]=data[y+1]
+                data[y+1]=temp
 
         for student in data :
                 print("Name",student['name'],"Roll number:",student['roll'],"Mark:",student['marks'])
