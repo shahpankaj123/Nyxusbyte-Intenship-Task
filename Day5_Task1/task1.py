@@ -85,7 +85,7 @@ class Student:
                 data[y+1]=temp
 
         for student in data :
-                print("Name",student['name'],"Roll number:",student['roll'],"Mark:",student['marks'])
+                print("Name :",student['name'],"Roll number:",student['roll'],"Mark:",student['marks'])
 
     def __str__(self):
         return self.name + '_' + self.roll           
@@ -95,7 +95,7 @@ while g==0:
    def exit():
     choice=input("-Are you sure want to exit?(Y/N)") 
     if choice == 'Y' or choice == 'y':
-      print("-Thank you for playing")
+      print("-Thank you ")
       return 1
     
    print("---- student management system ----")
