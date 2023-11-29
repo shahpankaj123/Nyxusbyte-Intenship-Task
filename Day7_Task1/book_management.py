@@ -1,8 +1,5 @@
-import member_management
-import borrow_return
 
-from abc import ABC
-class Book(ABC):
+class Book:
     id=0
     raw_data=[]
 
@@ -17,9 +14,9 @@ class Book(ABC):
 
     def add_book(self):
         try:
-           name=input('enter the name of product:')
-           price=float(input("enter the price of product:"))
-           quantity=int(input("enter the quantity of product"))
+           name=input('enter the name of book:')
+           price=float(input("enter the price of book:"))
+           quantity=int(input("enter the quantity of book"))
            author=input("enter the name of category")  
            self.getdata().append({'id':self.getid(),'name':name,'price':price,'quantity':quantity,'author':author})    
            
@@ -79,59 +76,3 @@ class Book(ABC):
     def __str__(self):
         return 'name'
 
-
-
-
-g=0
-
-while g==0:
-   def exit():
-    choice=input("-Are you sure want to exit?(Y/N)") 
-    if choice == 'Y' or choice == 'y':
-      print("-Thank you ")
-      return 1
-    
-   print("---- Student management system ----")
-   print("add -> add book")
-   print("view -> view all book")
-   
-   print("update -> update book")
-   print("del -> delete book")
-   print("add_member -> add the member:")
-   print("update_member -> update the data of member")
-   print("delete_member -> delete the data of member")
-   print("exit -> exit")
-
-   choice=input("enter your choice :")
-   data=Book()
-   member=member_management.LibraryMember()
-   borrow=borrow_return.Bookrent()
-  
-
-   if choice == 'add':
-       
-          
-          data.add_book()
-
-   elif choice == 'view':
-          data.view_all_book()
-          print(id(data)) 
-   elif  choice == 'update':
-          data.update_book_info()    
-   elif  choice == 'del':
-          data.del_book()    
-
-   elif  choice == 'exit':
-       g=exit() 
-   elif choice == 'add_member':
-       member.add_member()
-   elif choice == 'update_member':
-       member.update_member()
-   elif choice == 'del_member':
-       member.Remove_member() 
-   elif choice == 'take':
-       borrow.givebook()  
-   elif choice == 'return':
-       borrow.returnbook()           
-   else:
-       print("please choose valid choice")   

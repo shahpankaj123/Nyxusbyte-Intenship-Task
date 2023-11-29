@@ -11,7 +11,7 @@ class  LibraryMember:
         address=input("enter your address:")
         roll=int(input("enter the roll of student"))
         semester=input("enter the semester of student:")
-        self.getdata().append({'name':name,'address':address,'roll':roll,'semester':semester,'book_taken':0})
+        self.getdata().append({'name':name,'address':address,'roll':roll,'semester':semester})
        except Exception as e:
             print(e)   
     def update_member(self):
