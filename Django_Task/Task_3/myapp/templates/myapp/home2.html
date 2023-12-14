@@ -1,0 +1,27 @@
+{% extends "myapp/base.html" %}
+{% block title %} Home page 2 {% endblock%}
+
+{% block content %}
+<h1>Book List</h1>
+    
+{% for book in data %}
+    <div>
+        <h2>{{ book.title }}</h2>
+        <p><strong>Authors:</strong> 
+            {% for author in book.authors.all %}
+                {{ author.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+        <p><strong>Genres:</strong> 
+            {% for genre in book.genres.all %}
+                {{ genre.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+        <p><strong>Publication Date:</strong> {{ book.publication_date }}</p>
+        <p><strong>Publisher:</strong> {{ book.publisher.name }}</p>
+    </div>
+    <hr>
+{% endfor %}  
+
+
+{% endblock %}
