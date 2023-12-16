@@ -1,14 +1,28 @@
 from django.shortcuts import render,redirect
 from .models import Post
+from django.core.cache import cache
 
 
-def Home(request):
-    posts=Post.objects.all()
+def Home(request): 
+    if cache.get('posts'):
+         posts=cache.get('posts')
+         db='redis'
+    else:     
+      posts=Post.objects.all()
+      db='sqlite'
+      cache.set('posts',posts,timeout=10)
+    print(db)     
     return render(request,'myapp/home.html',{'data':posts})
 
 def Post_detail(request,id):
-    print(id)
-    post=Post.objects.get(id=id)
+    if cache.get('post'):
+        post=cache.get('post')
+        db='redis'
+    else:    
+      post=Post.objects.get(id=id)
+      db='sqlite'
+      cache.set('post',post,timeout=10)
+    print(db)  
     return render(request,'myapp/Post_detail.html',{'data':post})
 
 def Add_Post(request):
