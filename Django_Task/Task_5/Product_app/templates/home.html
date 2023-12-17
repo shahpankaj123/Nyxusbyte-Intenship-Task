@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %} Home page {% endblock%}
+
+{% block content %}
+
+<header>
+    <h1>Product Review Page</h1>
+    <a href="{% url "add_product" %}"><button type="button" class="btn btn-success buttonmain">Add Product</button></a>
+</header>
+<main>
+    <h2>Latest Reviews</h2>
+{% for p in data %}
+    <div class="review">
+        <p class="review-author">Product Name:{{p.name}}</p>
+        <p class="review-date"><img src={{p.img.url}} height=100px width=100px></p>
+        <div class="review-content">
+            <p>Price:{{p.price}}</p>
+        </div>
+        <p class="review-date">Published_Date:{{p.created}}</p>
+        <a href="{% url "product_detail" p.id %}"><button type="button" class="btn btn-info">Review</button></a>
+
+    </div>
+{% endfor %}
+    <!-- Add more reviews as needed -->
+
+</main>
+
+
+{% endblock %}
