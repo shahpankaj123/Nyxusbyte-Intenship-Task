@@ -15,6 +15,7 @@ def add_product(request):
         if form.is_valid():
           print('hello')
           form.save()
+          messages.success(request,"Product added successfully")
           return redirect('/product')
     else:
         form = ProductForm()
@@ -43,6 +44,7 @@ def edit_product(request,id):
           product.desc=product_desc
           product.img=img
           product.save()
+          messages.success(request,"Product Updated successfully")
           return redirect('/product')
         else:
           name=request.POST['name']
@@ -57,13 +59,15 @@ def edit_product(request,id):
           product.desc=product_desc
           product.img=img
           product.save()
+          messages.success(request,"Product Updated successfully")
           return redirect('/product')
+          
 
     return render(request, 'edit_product.html', {'data':product,'cat':category})
 
 def delete_product(request,id):
     product=Product.objects.get(id=id)
     product.delete()
-    messages.success(request,"Data deleted successfully")
-    return redirect('home')
+    messages.success(request,"Product deleted successfully")
+    return redirect('/product')
 

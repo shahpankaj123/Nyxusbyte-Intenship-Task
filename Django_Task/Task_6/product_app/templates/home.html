@@ -7,6 +7,12 @@
     <h1>Product Review Page</h1>
     <a href="{% url "add_product" %}"><button type="button" class="btn btn-success buttonmain">Add Product</button></a>
 </header>
+{% for message in messages  %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>{{message}}!</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
 <main>
     <h2>Latest Reviews</h2>
 {% for p in data %}
@@ -19,7 +25,7 @@
         <p class="review-date">Published_Date:{{p.created}}</p>
         <a href="{% url "product_detail" p.id %}"><button type="button" class="btn btn-info">Review</button></a>
         <a href="{% url "product_edit" p.id %}"><button type="button" class="btn btn-primary">Edit</button></a>
-        <a href="{% url "product_detail" p.id %}"><button type="button" class="btn btn-danger">Delete</button></a>
+        <a href="{% url "product_delete" p.id %}"><button type="button" class="btn btn-danger">Delete</button></a>
 
     </div>
 {% endfor %}
