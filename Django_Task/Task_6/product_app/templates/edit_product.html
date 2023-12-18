@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %} Add post page {% endblock%}
+
+{% block content %}
+
+<header>
+    <h1>Add Post</h1>
+    
+</header>
+<main>
+    <form method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Product Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name" value={{data.name}}>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Post Category</label><br>
+          <select name="category">
+             {% for c in cat %}
+             <option value={{c.name}}>{{c.name}}</option>
+             {% endfor %}
+          </select> 
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Price</label>
+            <input type="number" class="form-control" id="exampleInputPassword1" name="price" value={{data.price}}>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Product Desc</label>
+            <textarea name='desc'>{{data.desc}}</textarea>
+          </div>  
+          <div class="mb-3">
+            <p class="review-date"><img src={{data.img.url}} height=100px width=100px></p>
+            <label for="exampleInputPassword1" class="form-label">Product img</label>
+            <input type="file" class="form-control" id="exampleInputPassword1" name="author">
+          </div> 
+          
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+    <!-- Add more reviews as needed -->
+
+</main>
+
+
+{% endblock %}

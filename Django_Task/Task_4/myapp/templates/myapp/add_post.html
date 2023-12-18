@@ -11,16 +11,15 @@
     <form method='POST'>
         {% csrf_token %}
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Post Title</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="title">
+          <label for="exampleInputEmail1" class="form-label">Product Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="title" value={{data.name}}>
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Post Desc</label><br>
-          <textarea id="postReview" name="postdesc" rows="4" cols="50" placeholder="Enter your review here..."></textarea>
+          <label for="exampleInputPassword1" class="form-label">Post Category</label><br>
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Author</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" name="author">
+            <label for="exampleInputPassword1" class="form-label">Price</label>
+            <input type="number" class="form-control" id="exampleInputPassword1" name="author" value={{data.price}}>
           </div>
         <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
