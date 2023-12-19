@@ -31,38 +31,21 @@ def edit_product(request,id):
     product=Product.objects.get(id=id)
     category=Category.objects.all()
     if request.method == 'POST':
-        if request.FILES.get('img'):
           name=request.POST['name']
           category1=request.POST['category']
           price=request.POST['price']
           product_desc=request.POST['desc']
-          img=request.FILES.get('img')
+          if request.FILES.get('img'):
+               img=request.FILES.get('img')
+               product.img=img
           category_obj=Category.objects.get(name=category1)
           product.name=name
           product.category=category_obj
           product.price=price
           product.desc=product_desc
-          product.img=img
           product.save()
           messages.success(request,"Product Updated successfully")
           return redirect('/product')
-        else:
-          name=request.POST['name']
-          category1=request.POST['category']
-          price=request.POST['price']
-          product_desc=request.POST['desc']
-          category_obj=Category.objects.get(name=category1)
-          img=product.img
-          product.name=name
-          product.category=category_obj
-          product.price=price
-          product.desc=product_desc
-          product.img=img
-          product.save()
-          messages.success(request,"Product Updated successfully")
-          return redirect('/product')
-          
-
     return render(request, 'edit_product.html', {'data':product,'cat':category})
 
 def delete_product(request,id):
