@@ -32,7 +32,8 @@ def Blog_detail(request,id):
 
 @login_required(login_url='Login')
 def edit_blog(request,id):
-    blog=Blog.objects.get(id=id)
+  blog=Blog.objects.get(id=id)
+  if blog.user==request.user:
     category=Category.objects.all()
     if request.method == 'POST':
           name=request.POST['name']
@@ -48,11 +49,19 @@ def edit_blog(request,id):
           blog.save()
           messages.success(request,"Blog Updated successfully")
           return redirect('home')
-    return render(request, 'edit_blog.html', {'data':blog,'cat':category})
+    else:
+        return render(request, 'edit_blog.html', {'data':blog,'cat':category})
+  else:
+     messages.success(request,"You are not authorized to Edit blog")
+     return redirect('home')
 
 @login_required(login_url='Login')
 def delete_blog(request,id):
     blog_obj=Blog.objects.get(id=id)
-    blog_obj.delete()
-    messages.success(request,"Blog deleted successfully")
-    return redirect('home')
+    if blog_obj.user==request.user:
+       blog_obj.delete()
+       messages.success(request,"Blog deleted successfully")
+       return redirect('home')
+    else:
+     messages.success(request,"You are not authorized to Delete blog")
+     return redirect('home')

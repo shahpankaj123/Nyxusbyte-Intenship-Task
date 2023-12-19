@@ -22,6 +22,7 @@
         <p class="review-author">Title :{{p.name}}</p>
         <p class="review-date"><img src={{p.img.url}} height=100px width=100px></p>
         <p class="review-date">Blog Desc : {{p.desc}}</p>
+        <p class="review-date">Author : {{p.user}}</p>
         <p class="review-date">Published_Date:{{p.created}}</p> 
         <a href="{% url "blog_detail" p.id %}"><button type="button" class="btn btn-info">Review</button></a>
         <a href="{% url "blog_edit" p.id %}"><button type="button" class="btn btn-primary">Edit</button></a>
